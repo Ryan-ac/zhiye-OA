@@ -13,7 +13,7 @@
                     <div class="col-sm-12">
                         <h4>导入流程</h4>
                     </div>
-                    <form class="form-horizontal m-t" id="signupForm">
+                    <form class="form-horizontal m-t" id="signupForm" enctype="multipart/form-data">
                         <div class="form-group">
                             <label class="col-sm-1 control-label">导入流程：</label>
                             <div class="col-sm-4">
@@ -42,12 +42,12 @@
     </div>
 </div>
 
-测试代码
+<!-- 测试代码 -->
 
-<form action="/act/process/save" method="post" enctype="multipart/form-data">
-    <input type="file" name="file" />
-    <input type="submit" value="上传文件" />
-</form>
+<!-- <form action="/activiti/process/save" method="post" enctype="multipart/form-data"> -->
+<!--     <input type="file" name="file" /> -->
+<!--     <input type="submit" value="上传文件" /> -->
+<!-- </form> -->
 <div th:include="include::footer"></div>
 <script type="text/javascript" src="/js/appjs/act/process/add.js">
 </script>

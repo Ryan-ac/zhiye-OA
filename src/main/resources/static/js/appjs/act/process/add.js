@@ -22,8 +22,20 @@ function save() {
 	$.ajax({
 		cache : true,
 		type : "POST",
-		url : "/act/process/save",
-		data : $('#signupForm').serialize(),// 你的formid
+		url : "/activiti/process/save",
+		//XMLHttpRequest Level 2添加了一个新的接口FormData.利用FormData对象,
+		//我们可以通过JavaScript用一些键值对来模拟一系列表单控件,我们还可以使用
+		//XMLHttpRequest的send()方法来异步的提交这个"表单".比起普通的ajax,
+		//使用FormData的最大优点就是我们可以异步上传一个二进制文件.
+		data : new FormData($('#signupForm')[0]),// 你的formid
+		//Ajax上传必须设置(默认: true) 默认情况下，通过data选项传递进来的数据，如果是一个对象(技术上讲只要不是字符串)，
+		//都会处理转化成一个查询字符串，以配合默认内容类型 "application/x-www-form-urlencoded"。
+		//如果要发送 DOM 树信息或其它不希望转换的信息，请设置为 false。
+		processData: false,
+		//(默认: "application/x-www-form-urlencoded") 发送信息至服务器时内容编码类型。
+		//默认值适合大多数情况。如果你明确地传递了一个content-type给 $.ajax() 
+		//那么他必定会发送给服务器（即使没有数据要发送）
+	    contentType: false,
 		async : false,
 		error : function(request) {
 			parent.layer.alert("Connection error");
